@@ -1,0 +1,211 @@
+BOILER-PLATE CODE = REDUNDANT CODE or REPEATED CODE 
+------------------------------------------------------------------------------------------------------
+
+Need of GPL(Problems if we don't have GPL):
+-Applications cannot be easily ported from country to country.
+-These activities incur significant costs plus there are additional ongoing costs for applying upgrades
+
+
+Sequence : Application Development -> Deployment -> On-Boarding -> Evergreening
+
+Gloabal Portal -> WAS -> WPS
+----------------------------------------------------------------------------------------------------
+
+POP's are in UK US AND HK
+
+-Customer Facing  and Staff Facing 
+-In UK( only Customer Facing)
+
+ Dark  - Application is Disabled from starting up.
+ Light - Application is Enabled and facing customer traffic.
+ Pilot - Application is Enabled and facing limited customer traffic. 
+--------------------------------------------------------------------------------
+
+
+
+Phases: After Application code is done 
+-SIT(System Integration Testing SWH Teamsite-PRE GPL) -> UAT(Unit Acceptance Testing PRODBDE Teamsite GPL) -> MPP BDE->Promote -> Pre- Prod -> Liv
+
+-BDE( Business Development Enviroment ) 
+
+-SDE( Synchronized Development Enviroment ) 
+
+-MPP( Manage Projects in Parallel )
+
+-POP's(Presence of Points) :- There are 3 POP's where we deploy the code ,content and configuration file
+
+Portals( One Page can have multiple portlets )
+
+-We do maintenance also which may result in critical code breaks during changes in any applications
+
+Deployment - means deploying multiple apps 
+Onboarding - means if other apps also want to use the existing apps i.e they're on boarding i.e activating the application so that it can be used by others apps
+
+
+-pages.xml
+
+---------------------------------------------------------------------------------------------------
+MPP introduces the principal of a “Production Stream” and “Parallel Streams” from an environmental perspective. 
+
+-The Production Stream contains a “Prod BDE”, a “Pre-Prod” Synched SDE and the Live infrastructure. It is used to deliver quick changes to Live e.g. BAU content, emergency fixes, etc. 
+
+-The Parallel Stream(s) each contain an “MPP BDE” and numerous Synched SDEs which is where all upcoming projects are tested. 
+
+-Once a project has been signed-off in a Parallel Stream, it must be “Promoted” to the Production Stream in order to go Live. There is no direct connection from the Parallel Stream(s) to the Live infrastructure.
+
+-The Promote process moves the code, content and config from the Parallel Stream to the Production Stream. Code promotion is a mainly automated process. Content promotion is ‘semi’-automatic (i.e. some manual process). Config work is manual. 
+
+-Upon completion of the Promote process, a final round of testing is performed in the Pre-Prod environment, prior to delivering to Live. This testing is particularly focused on any manual elements of the promotion.
+
+-Due to the critically of the Promote process, its good practice to consider this the start of the Live release. 
+
+----------------------------------------------------------------------------------------------------
+
+
+Suppose there are 9 apps
+Its pre-decided that 4 should be live from POP1,3 from POP2 and remaining 2 from POP3
+POP1 - 4 Live from POP1 out of the 9 and the remaining 5 (they are also deployed) but there WAR's 
+POP2 - 3 Live from POP1 out of the 9 and the remaining 6 (they are also deployed) but there WAR's 
+POP3 - 2 Live from POP1 out of the 9 and the remaining 7 (they are also deployed) but there WAR's 
+
+--Two types of Server
+1.Live Server -
+2.Contigency Server( In case of Backup or Failure of Live Server ) - First all the pages are deployed and tested and then they're being sent to the Live Server
+
+Hence there is network switch between the two servers
+
+
+-Testing 1. SIT 2 UAT 3 Performance 
+
+----------------------------------------------------------------------------------------------------
+
+Pros of GPL:
+-rationalise and simplify the systems we design, build, procure, deploy and support
+-deliver cost effective, world-class services to the bank’s customers, moving from a regionally focused to a global business/function focused organisation
+-reducing capital costs and minimises risk
+-enabling faster and cost-effective deployment
+-enabling entities to be up and running more quickly
+
+	( Liaise: Co-operate on a matter of mutual concern )
+----------------------------------------------------------------------------------------------------
+What we do and with whom?
+
+
+- A single globally governed content management team who are responsible for the deployment of all the content to the GPL environments. 
+- Using both the MPP (Managing Projects in Parallel) and PT (Parallel Testing) approaches to BDE development to allow flexible project management, maximising the development output while minimising duplication of effort and development errors.  
+- Support the Application Development Teams in creating Applications that can easily onboarded by future Entities. Reviewing all elements of the BDE output to ensure the use of consistent file/folder/page structures and naming conventions allowing content management to be generic and straight forward to maintain.
+- Liaise with the Application Development Teams to order to allow the BDE elements of the development to be recreated within the GPL environments. - Deploying the output to all required environments including SIT, UAT, Performance, Pre Production and Production. 
+- Provide Production support for all Live Application content 24/7.
+- Content maintenance for all Live Applications using a centrally controlled Small Enhancements sharepoint.
+
+
+Global Portal services are hosted and managed in a single central pool
+-Development, infrastructure and deployment activities are shared thereby reducing costs.
+-Countries can quickly ‘subscribe’ or ‘unsubscribe’ to an application increasing speed to market.
+-Evergreening and upgrades are done once centrally thereby reducing the total cost of ownership.
+-Provides consistent customer journeys and functionality.
+-Countries can leverage each other and the global position of HSBC
+
+-------------------------------------------------------------------------------------------------------
+[ DEPLOYMENT -> ON-BOARDING ]
+
+Deployment:
+
+-Deployment is the process of delivering front end application code, content and configuration to each POP.
+
+-It is key that an application has a consumer to undertake live proving once the application has been delivered.
+
+-Once deployed and verified applications are then available to all entities who will ‘on-board’ the application.
+
+On-boarding
+-On-boarding is the process of activating an application for entity on GPL. This is achieved by entity-specific configurations being externalised into a single BDE which enables entities to customise content and behaviour with minimal IT development effort
+-On completing the configuration on GPL, entities only need to provide a link to the application from their local system(s) for the front end. However where changes are required to an entity’s regional back office system(s) additional work may be required to fully integrate the application
+
+------------------------------------------------------------------------------------------------------------
+
+Responsibilities of Shell:
+
+-Dynamic themes – based on country of origin, user proposition, channel.
+-Navigation – standard structure based on country of origin, user proposition, channel and CAM level.
+-Language toggle – ability to toggle the display language will be managed by the shell. This toggling is based on the user’s country of origin.
+-Session management - session time out, logoff, return to local site.
+-BI and Webtrends – shell-level BI will be logged according to the standard BI guidelines. BI logs produced by the shell are segregated by entity.
+-Channels (Desktop, Mobile, etc.) – a single deployment of GPL supports multiple channels:
+–Customer Internet (secure and PWS).
+–Staff.
+–Mobile.
+Public Website (the shell can host both public web site applications/ content
+----------------------------------------------------------------------------------------------------------------
+
+CAM(Customer Authenticatio Model) Levels :
+
+-----------------------------------------------------------------
+CAM LEVEL |   CHANNEL    |   ROBOTS 	         | SITE TYPE    |    
+-----------------------------------------------------------------
+- CAM 0   |    Customer  |     index	         |  Public 	| 
+- CAM 10  |    Staff     |     index,follow      |  IB; PIB     | 
+- CAM 20  |    Both      |     index,nofollow    |  IB; PIB     | 
+- CAM 30  |              |     noindex,follow    |  IB; HSBCnet |
+- CAM 40  |		 |     noindex,nofollow  |  IB; eCare  	|
+          |              |                       |  IB; Other   |
+	  |              |                       |  HomePage    | 
+-----------------------------------------------------------------
+
+
+• Access to all customer-level information
+
+• Access to customer-level information that is not associated with a customer
+
+• Access to information only about a user's employer
+
+• Access to information only about a user's assigned customer list
+
+• Access to information about specific customers
+
+
+-------------------------------------------------------
+PORTLET WIRING(1. CREATE 2. UPDATE 3. DELETE)
+
+-It is recommended that we should create the wiring from child(source) to parent(target) and not from parent(source) to child(target)
+ because parent pages are deployed first and only then the child pages are deployed
+
+  Parent                         Parent 
+    |  Not Recommended             ^     Recommeded
+    v 		                   |		
+  Child                          Child         
+ 
+----------------------------------------------------------------------------------------------------
+
+Questions to be asked:
+
+1) Evergreening activities means?
+2) Infrastructure Release?
+3) Slide 5 ?
+4) Single Central Pool?
+5) Editions,Sets?
+6) Slide 12?
+7) PIB?  Ans: Personal Internet Banking and IB -> Internet Banking 
+8) What Promote means?
+9) Splitting Project Content from BAU Content?(Slide 17)
+10) Slide 26,27,28?
+11) Create one Application which will fetch all the location details such as Country...?
+12) Difference between SDE and BDE(Teamsite)?
+   -- BDE and SDE are both Environments	
+   -- BDE(Only Page Compositions)   actual work is done on SDE ()
+   -- After Deployment whatever it is on BDE also be available at SDE(they should be in Sync with each other)
+		
+13) Submit Function can only be used by Admin so that it can directly move the content to staging without using any Workflow
+------------------------------------------------------------------------------
+
+
+STEPS FOR CONTENT DEPLOYMENT :
+
+- Create Temp set and then send it for Approval(Set Testing workflow or Set Approval Workflow)
+- After it is Approved then deploy it(OneHSBC Workflow)
+
+-------------------------------------------------------------------------------
+
+
+Cons(Loopholes or limitations or disadvantages)
+
+

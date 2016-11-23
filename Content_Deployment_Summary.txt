@@ -1,0 +1,48 @@
+CONTENT DEPLOYMENT:
+
+Deployment FLOW ====> Workareas -> Different Workflow -> Approvals -> Staging => Edition => Deployment to specific Server
+
+Sample Detailed WorkFlow ->
+
+Weg Page Contains
+ + Porltet -> Added to a Page ( Portlets are assigned CAM levels based on few factors) ( Page identifies the highest CAM Level present from all the portlets assigned on that page and it becomes page's aggregate CAM Level )
+ + Skins -> Assigned to a Portlet
+ + Theme -> Assigned to a Page
+ + Layout -> Portlets are added into contains of different layout(i.e. One Column, Two Columns, Three Columns,  T Layout, L Layout, Reverse T Layout)
+ + Security -> ID+V through CAM(Customer Authentication Model) CAMO(Lowest or Public level Access), CAM10, CAM20, CAM30, CAM40(Highest or High Risk Payment)
+ + URLS -> Friendly URLs, Unique URL, Marketing URLs( Internal/External )
+
+
+Editor -> Start Job -> Edit Content -> Send to Approver Group -> Approver Takes Ownership -> Review Content  -> Approve /Reject Content -> Move Content to Staging -> Edition  gets ownership -> Edition Create -> Deploy it to server
+
+Authors
+Editors
+Administrator
+Master
+
+Teamsite -> Manage Compositions -> Friendly URLs -> Marketing URLs(Internal/External) -> SEO URL's
+
+Workareas:
++ Customer Facing Application Workareas => MPP BDE Workarea(Customer) and MPP BDE pt Workareas(Customer branches one for each server). Likewise, MPP BDE PRE-PROD and MPP BDE PROD Workarea
++ Staff Facing Application Workareas => MPP BDE Workarea Staff(Customer) and MPP BDE pt STaff Workareas(Customer branches one for each server). Likewise, MPP BDE PRE-PROD Staff and MPP BDE PROD Staff Workarea
+
+A - All GPL development is undertaken in the MPP BDE. When ready for a deployment, the files/pages are ‘ring fenced into a ‘set’. The set is sent to the PT workarea, edition created (in that area) and then deployed to the GPL SIT/AT environments.
+B - Once the application is signed off in SIT/AT the set is approved, transferring the files/pages to the MPP staging area ready for an edition creation. This edition is then deployed to the GPL Certification environments.
+C - Following the certification of the Release, a promote is undertaken to move the files/pages to the Production BDE. From there an edition is created and deployed to the Pre Production environments. Once the Regression testing has been undertaken a deployment to Production is actioned as detailed in the implementation plan.
+
+
+CODE -> BDE -> MKS -> Pre-Prod -> Prod
+CONTENT -> WORKAREA (Pages and Content)-> Staging -> SDE(SYnc) -> Prr-Prod-> Prod ..
+
+SIT Servers
+UAT Servers
+Pre-Prod Servers
+Prod Servers
+Contingency Servers
+Live Servers
+
+
+BDE -> SDE ( Both should be in Sync )
+
+SIT -> UAT-> Pre-Prod( Regression Testing ) -> Prod -> Contigency Server -> Live Server ( Site-switch)  => CONTENT => Teamsite and GSP
+DIT -> SIT(In between Defect Fixes) -> UAT -> Pre-Prod -> Prod -> Contingency Server -> -> Live Server ( Site-switch)  => CODE => G3 Deployment
